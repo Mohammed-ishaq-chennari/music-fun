@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="music.css">
+    
+
+</head>
+<body>
+    <div id="main">
+      <h1 style="display: flex; justify-content: center; color: #fff; margin: 0 ; padding: 2px ; box-shadow: 1px 1px 3px #fff   ; ; ">Hover Here To listen Top Artists</h1>
+  <audio src="modi1.aac"></audio>
+
+     
+      <div   class="elemt" data-src="Brown Rang.mp3" ><h1 class="hoverElement" >Yo Yo Honey Singh</h1> <img style="margin-top: -4.4vw;" src="Honey-Singh-2.avif" alt=""> </div>
+
+      <div class="elemt" data-src="modi1.aac " ><h1  class="hoverElement" >Yo Yo Modi singha</h1> <img style="margin-top: -10.7vw;" src="modi.jpg" alt=""> </div>
+
+      <div class="elemt" data-src="kh.mp3 "><h1>kaifi Khaleel</h1  class="hoverElement"> <img style="margin-top: -14.8vw;" src="kaifi.jpg" alt=""> </div>
+
+  <div class="elemt" data-src="b.mp3 "><h1>Bohemia</h1  class="hoverElement"> <img style="margin-top: -19.8vw;" src="bohemia.jpg" alt=""> </div>
+
+  <div class="elemt" data-src="m.mp3"><h1>Sidhu Moose Wala</h1  class="hoverElement">  <img style="margin-top: -26vw;" src="moose.jpg" alt=""> </div>
+ 
+  <div class="elemt" data-src="c.mp3 "><h1>Shub</h1  class="hoverElement"> <img style="margin-top: -32.2vw;" src="shub.webp" alt=""> </div>
+
+  <div class="elemt" data-src="l.mp3 "><h1>Ik Imran Khan</h1  class="hoverElement"> <img style="margin-top: -37.3vw;" src="imran khan.jpg" alt=""> </div>
+
+  <div class="elemt" data-src="tw.mp3 "><h1>Bilal saeed</h1  class="hoverElement"> <img style="margin-top: -40.3vw;" src="bilal saeed.jpg" alt=""> </div>
+ 
+ 
+</div>
+<audio id="audioElement" controls>
+  <source src="" type="audio/mp3">
+</audio>
+
+<script>
+ 
+  var audio = document.getElementById('audioElement');
+  var hoverElements = document.querySelectorAll('.elemt');
+
+
+  hoverElements.forEach(function (hoverElement) {
+    hoverElement.addEventListener('mouseover', function () {
+    
+      var audioSource = hoverElement.getAttribute('data-src');
+   
+      audio.src = audioSource;
+      audio.play();
+    });
+
+
+    hoverElement.addEventListener('mouseout', function () {
+    
+      audio.pause();
+  
+      audio.currentTime = 0;
+    });
+  });
+</script>
+
+<script>
+  var main = document.querySelectorAll(".elemt");
+   main.forEach(function(value){
+    value.addEventListener("mouseenter",function(){
+value.childNodes[2].style.opacity =1
+    });
+    value.addEventListener("mouseleave",function(){
+value.childNodes[2].style.opacity = 0
+    })
+    value.addEventListener("mousemove",function(detail){
+      value.childNodes[2].style.left = detail.x+'px'
+      value.childNodes[2].style.top = detail.y+'px'
+          })
+   })
+ 
+</script>
+
+
+</body>
+</html>
